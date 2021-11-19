@@ -1,55 +1,64 @@
 import { useState } from "react";
 
-const TransactionForm = ({addTransaction}) => {
+const TransactionForm = ({ addTransaction ,setIsShow}) => {
   const [formValues, setFormValues] = useState({
     type: "expense",
-    amount: 0,
+    amount: "",
     desc: "",
   });
   const changeHandler = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
-  const submitHandler=(e)=>{
-    e.preventDefault()
+  const submitHandler = (e) => {
+    e.preventDefault();
     addTransaction(formValues);
-  }
+    setIsShow(false)
+  };
   return (
-    <div>
+    <div className="modal-form">
       <form onSubmit={submitHandler}>
         <input
+          placeholder="Write your transaction"
           type="text"
           name="desc"
           onChange={changeHandler}
           value={formValues.desc}
         />
         <input
+          placeholder="amount"
           type="number"
-          name="mount"
+          name="amount"
           onChange={changeHandler}
           value={formValues.amount}
         />
-        <div>
-          <label htmlFor="expense-input">expense</label>
-          <input
-            type="radio"
-            name="type"
-            value="expense"
-            id="expense-input"
-            checked={formValues.type === "expense"}
-            onChange={changeHandler}
-          />
+        <div className="radio-box">
+          <label htmlFor="expense-input">
+            Expense
+            <input
+              type="radio"
+              name="type"
+              value="expense"
+              id="expense-input"
+              checked={formValues.type === "expense"}
+              onChange={changeHandler}
+            />
+          </label>
 
-          <label htmlFor="income-input">income</label>
-          <input
-            type="radio"
-            name="type"
-            value="income"
-            id="income-input"
-            checked={formValues.type === "income"}
-            onChange={changeHandler}
-          />
+          <label htmlFor="income-input">
+            Income
+            <input
+              type="radio"
+              name="type"
+              value="income"
+              id="income-input"
+              checked={formValues.type === "income"}
+              onChange={changeHandler}
+            />
+          </label>
         </div>
-        <button type="submit">Add Transaction</button>
+        <button type="submit" className="transaction-btn">
+          Add Transaction
+        </button>
       </form>
     </div>
   );
