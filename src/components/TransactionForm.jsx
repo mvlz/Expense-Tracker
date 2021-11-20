@@ -1,3 +1,5 @@
+
+import { IoCloseSharp } from "react-icons/io5";
 import { useState } from "react";
 
 const TransactionForm = ({ addTransaction ,setIsShow}) => {
@@ -12,6 +14,9 @@ const TransactionForm = ({ addTransaction ,setIsShow}) => {
   const submitHandler = (e) => {
     e.preventDefault();
     addTransaction(formValues);
+    setIsShow(false)
+  };
+  const closeHandler = () => {
     setIsShow(false)
   };
   return (
@@ -60,6 +65,7 @@ const TransactionForm = ({ addTransaction ,setIsShow}) => {
           Add Transaction
         </button>
       </form>
+    <IoCloseSharp onClick={closeHandler} className="close-btn" />
     </div>
   );
 };

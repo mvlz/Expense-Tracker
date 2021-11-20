@@ -1,8 +1,8 @@
 .App {
   /* text-align: center; */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.wrapper{
+.wrapper {
   height: 100vh;
   display: flex;
   flex-direction: row-reverse;
@@ -10,27 +10,28 @@
   justify-content: center;
   align-items: center;
 }
-.sidebar, .container{
+.sidebar,
+.container {
   padding: 2rem;
   height: calc(100% - 4rem);
 }
-.sidebar{
+.sidebar {
   /* background-color: blue; */
   width: calc(20vw - 4rem);
   display: flex;
   flex-direction: column-reverse;
   font-size: 0.75rem;
 }
-.container{
+.container {
   width: calc(80vw - 4rem);
   /* background-color: brown; */
 }
-.overview{
+.overview {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-.box{
+.box {
   width: calc(100% - 2rem);
   height: 6rem;
   border-radius: 5px;
@@ -40,14 +41,14 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-.transaction-btn{
+.transaction-btn {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 3rem;
   border-radius: 5px;
-  background-color: #F84158;
+  background-color: #f84158;
   outline: none;
   border: none;
   margin-top: 0.5rem;
@@ -56,7 +57,7 @@
   font-family: cursive;
   font-weight: 400;
 }
-.transaction-box{
+.transaction-box {
   height: 3rem;
   width: calc(50% - 3.5rem);
   box-shadow: 0px 2px 3px 0px lightgrey;
@@ -64,37 +65,38 @@
   padding: 0.5rem 1.25rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;    
+  align-items: center;
   font-size: 0.75rem;
 }
-.transaction-container{
+.transaction-container {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap-reverse;
 }
-.title{
+.title {
   font-family: cursive;
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 1rem;
 }
-.amount,.trans-desc{
+.amount,
+.trans-desc {
   font-size: 0.875rem;
   font-weight: 500;
 }
-.income-box .amount{
+.income-box .amount {
   color: green;
 }
-.expense-box .amount{
+.expense-box .amount {
   color: red;
 }
-.box-left{
+.box-left {
   display: flex;
   justify-content: space-between;
   gap: 0.75rem;
   align-items: center;
 }
-.trans-pic{
+.trans-pic {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 4px;
@@ -105,7 +107,7 @@
   font-size: 0.875rem;
   color: blue;
 }
-.modal-form{
+.modal-form {
   width: 18rem;
   height: 12rem;
   border-radius: 10px;
@@ -114,28 +116,37 @@
   box-shadow: 0px 20px 15px -10px #ccc;
   padding: 1rem;
 }
-.modal-form form{
+.modal-form form {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.modal-form form input{
+.modal-form form input {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   color: #777;
   outline: none;
 }
-.radio-box label, .radio-box{
+.radio-box label,
+.radio-box {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.radio-box label{
+.radio-box label {
   gap: 0.25rem;
-  accent-color: #F84158;
+  accent-color: #f84158;
 }
-.trans-date{
+.trans-date {
   color: #777;
+}
+.close-btn {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  color: #777;
+  font-size: 0.75rem;
+  cursor: pointer;
 }
