@@ -11,7 +11,7 @@ const ExpenseApp = () => {
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
   const [transactions, setTransactions] = useState([]);
-  const [categories, setCategories]=useState([{title:"taxi", color:"ffdd00" ,id:1},{title:"gym", color:"04ff00",id:2,}]);
+  const [categories, setCategories]=useState([{title:"taxi", color:"#ffdd00" ,id:1},{title:"gym", color:"#04ff00",id:2,}]);
 
   const addTransaction = (formValues) => {
     const catColor = categories.find(c => c.title === formValues.category)
@@ -24,7 +24,10 @@ const ExpenseApp = () => {
   const showHandlerr = () => {
     setIsShoww(!isShoww);
   };
-  
+  const addCategory = (catVal) => {
+    const id = {...catVal, id: categories.length + 1}
+      setCategories([...categories, id]);
+  };
   useEffect(()=>{
     let exp = 0;
     let inc = 0;
@@ -36,7 +39,7 @@ const ExpenseApp = () => {
   return (
     <section className="wrapper">
       {isShow && <TransactionForm  addTransaction={addTransaction} setIsShow={setIsShow} categories={categories} />}
-      {isShoww && <CategoriesForm  addTransaction={addTransaction} setIsShoww={setIsShoww} />}
+      {isShoww && <CategoriesForm  addTransaction={addTransaction} setIsShoww={setIsShoww} addCategory={addCategory} />}
       <div className="sidebar">
         <button onClick={showHandler} className="transaction-btn btn">
           + Add Transaction
