@@ -11,7 +11,7 @@ const ExpenseApp = () => {
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
   const [transactions, setTransactions] = useState([]);
-  const [categories, setCategories]=useState([{title:"taxi", color:"#ffdd00" ,id:1},{title:"gym", color:"#04ff00",id:2,}]);
+  const [categories, setCategories]= useState([{title:"taxi", color:"#ffdd00" ,id:1},{title:"gym", color:"#FE7799",id:2,}]);
 
   const addTransaction = (formValues) => {
     const catColor = categories.find(c => c.title === formValues.category)
@@ -48,7 +48,7 @@ const ExpenseApp = () => {
         <OverViewComponent expense={expense} income={income} />
       </div>
       <div className="container">
-        <CategoriesComponent  setIsShoww={setIsShoww} showHandlerr={showHandlerr} />
+        <CategoriesComponent showHandlerr={showHandlerr} categories={categories} />
         <TransactionComponent transactions={transactions} />
       </div>
     </section>
