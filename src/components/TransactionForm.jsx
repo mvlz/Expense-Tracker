@@ -1,15 +1,15 @@
-
 import { IoCloseSharp } from "react-icons/io5";
-import { useState } from "react";
+import { useState} from "react";
 
-const TransactionForm = ({ addTransaction ,setIsShow}) => {
+const TransactionForm = ({ addTransaction ,setIsShow,categories}) => {
   const [formValues, setFormValues] = useState({
     type: "expense",
     amount: "",
     desc: "",
   });
   const changeHandler = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    setFormValues({ ...formValues, [e.target.name]: e.target.value});
+    console.log(e.target.value);
   };
   const submitHandler = (e) => {
     e.preventDefault();
@@ -61,7 +61,15 @@ const TransactionForm = ({ addTransaction ,setIsShow}) => {
             />
           </label>
         </div>
-        <button type="submit" className="transaction-btn">
+        <select onChange={changeHandler} name="category">
+          {
+            categories.map(c=>{
+
+              return <option key={c.id} value={c.title}>{c.title}</option>
+            })
+          }
+        </select>
+        <button type="submit" className="transaction-btn btn" >
           Add Transaction
         </button>
       </form>

@@ -11,7 +11,7 @@ const OverViewComponent = ({income, expense}) => {
             </div>
             <div className="expense-box box">
                 <p className="overview-title">Expense</p>
-                <p className="amount">{income > 0 && "-"}${expense}</p>
+                <p className="amount">{expense > 0 && "-"}${expense}</p>
             </div>
         </div>
      );
