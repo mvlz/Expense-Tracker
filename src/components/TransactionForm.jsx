@@ -6,6 +6,7 @@ const TransactionForm = ({ addTransaction ,setIsShow,categories}) => {
     type: "expense",
     amount: "",
     desc: "",
+    category:"",
   });
   const changeHandler = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value});
@@ -13,8 +14,19 @@ const TransactionForm = ({ addTransaction ,setIsShow,categories}) => {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    addTransaction(formValues);
-    setIsShow(false)
+    
+    if (formValues.desc === "") {
+      alert("Write transaction describtion");
+    } else if (formValues.amount === "" || !formValues.amount) {
+      alert("Add Amount");
+    } else if (formValues.category === "") {
+      alert("Choose category");
+    } else {
+      addTransaction(formValues);
+    }
+    if (submitHandler) {
+      setIsShow(false);
+    }
   };
   const closeHandler = () => {
     setIsShow(false)
@@ -62,9 +74,9 @@ const TransactionForm = ({ addTransaction ,setIsShow,categories}) => {
           </label>
         </div>
         <select onChange={changeHandler} name="category">
+          <option value="" disabled selected>Choose Category</option>
           {
             categories.map(c=>{
-
               return <option key={c.id} value={c.title}>{c.title}</option>
             })
           }

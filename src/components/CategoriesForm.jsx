@@ -6,7 +6,13 @@ const CategoriesForm = ({setIsShoww,addCategory}) => {
   const [catVal,setCatVal]= useState({title:"",color: ""})
   const submitHandler = (e) => {
     e.preventDefault();
-    addCategory(catVal);
+    if(catVal.title ===""){
+      alert("Add Category inf")
+    } else if(catVal.color ===""){
+      alert("Add Category color")
+    } else{
+      addCategory(catVal);
+    }
     setIsShoww(false)
   };
   

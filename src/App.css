@@ -120,7 +120,7 @@
 }
 .modal-form {
   width: 18rem;
-  height: 12rem;
+  min-height: 7rem;
   border-radius: 10px;
   background-color: #fff;
   position: absolute;
@@ -132,6 +132,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  gap: 0.75rem;
 }
 .modal-form form input, .modal-form form select {
   padding: 0.5rem;
@@ -142,6 +143,7 @@
 }
 .modal-form form select{
   text-transform: capitalize;
+  cursor: pointer;
 }
 .radio-box label,
 .radio-box {
@@ -154,6 +156,7 @@
   accent-color: #f84158;
   font-size: 0.75rem;
   font-weight: 500;
+  cursor: pointer;
 }
 .trans-date {
   color: #777;
@@ -199,4 +202,8 @@
 }
 .search-input::placeholder{
   color: #b4b4b4;
+}
+.modal-form input[type=color]{
+  padding: 0.1rem;
+  cursor: pointer;
 }
