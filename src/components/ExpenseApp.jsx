@@ -31,19 +31,12 @@ const ExpenseApp = () => {
     const id = {...catVal, id: categories.length + 1}
       setCategories([...categories, id]);
   };
-  useEffect(()=>{
-    let exp = 0;
-    let inc = 0;
-    transactions.forEach(t=> t.type === "expense" ? exp = parseFloat(t.amount) + exp : inc= parseFloat(t.amount) + inc)
-    setIncome(inc)
-    setExpense(exp)
-    filterTransaction(search)
-  },[transactions])
   
   const searchHandler=(e)=>{
     setSearch(e.target.value);
     filterTransaction(e.target.value)
   }
+
   const filterTransaction=(search)=>{
     if(!search || search ===""){
       setFiltered(transactions)
@@ -52,6 +45,24 @@ const ExpenseApp = () => {
     const filters= transactions.filter(t => t.desc.toLowerCase().includes(search.toLowerCase()))
     setFiltered(filters)
   }
+  useEffect(()=>{
+    let exp = 0;
+    let inc = 0;
+    transactions.forEach(t=> t.type === "expense" ? exp = parseFloat(t.amount) + exp : inc= parseFloat(t.amount) + inc)
+    setIncome(inc)
+    setExpense(exp)
+    // the "filterTransaction" fuction was copied and the name was changed to resolve a warning about useEffect dependencies! 
+    const filterTransactionn = (search)=>{
+      if(!search || search ===""){
+        setFiltered(transactions)
+        return
+      }
+      const filters= transactions.filter(t => t.desc.toLowerCase().includes(search.toLowerCase()))
+      setFiltered(filters)
+    }
+    filterTransactionn(search)
+  },[transactions,search])
+  
   return (
     <section className="wrapper">
       {isShow && <TransactionForm  addTransaction={addTransaction} setIsShow={setIsShow} categories={categories} />}

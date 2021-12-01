@@ -1,7 +1,6 @@
-import { IoBarbell } from "react-icons/io5";
 const TransactionComponent = ({transactions}) => {
     return ( 
-        <div>
+        <div className="transaction-div">
             <h3 className="title">Transactions</h3>
             <div className="transaction-container">
                 {transactions.map(transaction => {

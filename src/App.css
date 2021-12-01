@@ -65,7 +65,7 @@
 }
 .transaction-box {
   height: 3rem;
-  width: calc(50% - 3.5rem);
+  width: calc(100% - 3.5rem);
   box-shadow: 0px 2px 3px 0px lightgrey;
   border-radius: 5px;
   padding: 0.5rem 1.25rem;
@@ -74,10 +74,17 @@
   align-items: center;
   font-size: 0.75rem;
 }
+.transaction-div{
+  height: 78%;
+}
 .transaction-container {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap-reverse;
+  flex-direction: column-reverse;
+  max-height: calc(100% - 3rem);
+  height: calc(100% - 3rem);
+  overflow-y: auto;
+  justify-content: flex-end
 }
 .title {
   font-family: cursive;
@@ -206,4 +213,48 @@
 .modal-form input[type=color]{
   padding: 0.1rem;
   cursor: pointer;
+}
+
+@media screen and (max-width : 768.99px) {
+  .wrapper{
+    flex-direction: column;
+    /* justify-content: flex-start; */
+  }
+  .sidebar,.container{
+    width: calc(100% - 2rem);
+    padding: 1rem;
+  }
+  .container{
+    height: calc(75vh - 2rem);
+  }
+  .sidebar{
+    height: calc(25vh - 2rem);
+  }
+  .categories-container{
+    width: 100%;
+    overflow-x: auto;
+  }
+  .cat-btn{
+    min-width: 4rem;
+  }
+  .overview{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .box{
+    height: 3rem;
+    padding: 0.5rem;
+  }
+  .modal-form{
+    width: calc(100% - 3rem);
+  }
+  .transaction-box{
+    width: calc(100% - 2.5rem);
+  }
+  .transaction-container{
+    overflow-y: auto;
+  }
+  .transaction-div{
+    height: 62%;
+  }
 }
