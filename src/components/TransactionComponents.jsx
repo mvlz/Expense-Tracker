@@ -5,7 +5,7 @@ const TransactionComponent = ({transactions}) => {
             <div className="transaction-container">
                 {transactions.map(transaction => {
                     return (
-                      <div className="transaction-box" key={transaction.id}>
+                      <div className="transaction-box" key={transaction.id}  style={{ boxShadow: `0px 0px 0px 3px ${transaction.type === "expense" ? "lightcoral": "lightgreen"}`}}>
                             <div className="box-left">
                                 <div className="trans-pic" style={{backgroundColor: transaction.color}}> <p>{transaction.category.toUpperCase()}</p> </div>
                                 <div>
@@ -13,7 +13,7 @@ const TransactionComponent = ({transactions}) => {
                                     <p className="trans-date">4 Feb {transaction.category}</p>
                                 </div>
                             </div>
-                            <p style={{fontWeight: "500", color: transaction.type === "expense" ? "red": "green"}}>{transaction.type === "expense" ? "-" :"+"}${transaction.amount}</p>
+                            <p style={{fontWeight: "500", color: transaction.type === "expense" ? "lightcoral": "lightgreen"}}>{transaction.type === "expense" ? "-" :"+"}${transaction.amount}</p>
                         </div>
                     );
                 })}
